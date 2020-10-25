@@ -1,1 +1,1 @@
-kotlin-hibernate-reactive
+kotlin-graphql
