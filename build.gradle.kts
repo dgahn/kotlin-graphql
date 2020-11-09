@@ -1,45 +1,28 @@
 plugins {
-    kotlin("jvm") version KotlinVersion.kotlin
-    id(SpringLibs.dependencyManagement) version SpringVersion.dependencyManagement
-    id(SpringLibs.boot) version SpringVersion.boot
+    id(SpringPlugin.boot) version SpringVersion.boot
+    id(SpringPlugin.dependencyManagement) version SpringVersion.dependencyManagement
+    kotlin(KotlinPlugin.jvm) version KotlinVersion.kotlin
+    kotlin(KotlinPlugin.spring) version KotlinVersion.kotlin
 }
 
 allprojects {
     apply(plugin = KotlinPlugin.kotlin)
-    apply(plugin = SpringLibs.dependencyManagement)
-
     group = "me.dgahn"
     version = "0.1.0"
 
     repositories {
-        google()
+        mavenLocal()
         mavenCentral()
-    }
-
-    dependencies {
-        implementation(KotlinLibs.kotlinStdlib)
-        implementation(KotlinLibs.coroutineCore)
-        implementation(KotlinLibs.coroutinesReactive)
-        implementation(KotlinLibs.coroutinesReactor)
-
-        implementation(SpringLibs.bootStarterWebflux)
-
-        implementation(LogLibs.logback)
-        implementation(LogLibs.kotlinLogging)
-
-        testImplementation(KotestLibs.runnerJunit5)
-        testImplementation(KotestLibs.assertionsCore)
-        testImplementation(KotestLibs.kotestProperty)
-
-        testImplementation(TestContainerLibs.postgresql)
+        maven("https://repo.spring.io/milestone")
+        maven("https://repo.spring.io/snapshot")
     }
 
     tasks {
         compileKotlin {
-            kotlinOptions.jvmTarget = "1.8"
+            kotlinOptions.jvmTarget = "11"
         }
         compileTestKotlin {
-            kotlinOptions.jvmTarget = "1.8"
+            kotlinOptions.jvmTarget = "11"
         }
 
         withType<Test> {

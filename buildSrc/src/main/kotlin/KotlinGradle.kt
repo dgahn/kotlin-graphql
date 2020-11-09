@@ -1,5 +1,7 @@
 object KotlinPlugin {
+    const val spring = "plugin.spring"
     const val kotlin = "kotlin"
+    const val jvm = "jvm"
 }
 
 object KotlinVersion {

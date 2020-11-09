@@ -211,3 +211,4 @@ $RECYCLE.BIN/
 
 buildSrc/build
 !/gradle/wrapper/gradle-wrapper.jar
+/graphql/build/
