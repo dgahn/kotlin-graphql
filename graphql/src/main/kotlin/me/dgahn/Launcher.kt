@@ -1,22 +1,11 @@
 package me.dgahn
 
-import org.springframework.boot.logging.LogLevel
-import org.springframework.fu.kofu.reactiveWebApplication
-import org.springframework.fu.kofu.webflux.webFlux
-import org.springframework.web.reactive.function.server.ServerResponse
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
 
-val app = reactiveWebApplication {
-    logging {
-        level = LogLevel.DEBUG
-    }
-    webFlux {
-        port = if (profiles.contains("test")) 8181 else 8080
-        router {
-            GET("/") { ServerResponse.ok().build() }
-        }
-    }
-}
+@SpringBootApplication
+open class Launcher
 
-fun main() {
-    app.run()
+fun main(args: Array<String>) {
+    runApplication<Launcher>(*args)
 }

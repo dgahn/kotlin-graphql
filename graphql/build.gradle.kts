@@ -9,7 +9,6 @@ dependencies {
     implementation(KotlinLibs.coroutinesReactor)
 
     implementation(SpringLibs.bootStarterWebflux)
-    implementation(SpringLibs.kofu)
 
     implementation(LogLibs.logback)
     implementation(LogLibs.kotlinLogging)
