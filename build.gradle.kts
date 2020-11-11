@@ -1,11 +1,14 @@
 plugins {
-    id(SpringPlugin.boot) version SpringVersion.boot
-    id(SpringPlugin.dependencyManagement) version SpringVersion.dependencyManagement
     kotlin(KotlinPlugin.jvm) version KotlinVersion.kotlin
     kotlin(KotlinPlugin.spring) version KotlinVersion.kotlin
+
+    id(SpringPlugin.boot) version SpringVersion.boot
+    id(SpringPlugin.dependencyManagement) version SpringVersion.dependencyManagement
+
+    id(GrpcPlugin.protobuf) version GrpcVersion.protobuf apply false
 }
 
-allprojects {
+subprojects {
     apply(plugin = KotlinPlugin.kotlin)
     group = "me.dgahn"
     version = "0.1.0"

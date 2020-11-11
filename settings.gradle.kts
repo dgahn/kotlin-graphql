@@ -1,5 +1,7 @@
 rootProject.name = "kotlin-graphql"
+
 include("graphql")
+include("common-entity")
 
 pluginManagement {
     repositories {
