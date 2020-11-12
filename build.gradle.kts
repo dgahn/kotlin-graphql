@@ -8,7 +8,7 @@ plugins {
     id(GrpcPlugin.protobuf) version GrpcVersion.protobuf apply false
 }
 
-subprojects {
+allprojects {
     apply(plugin = KotlinPlugin.kotlin)
     group = "me.dgahn"
     version = "0.1.0"
@@ -16,6 +16,7 @@ subprojects {
     repositories {
         mavenLocal()
         mavenCentral()
+        maven("https://plugins.gradle.org/m2/")
         maven("https://repo.spring.io/milestone")
         maven("https://repo.spring.io/snapshot")
     }

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package me.dgahn.account;
+
+option java_multiple_files = true;
+
+message SignInRequest {
+  string id = 1;
+  string password = 2;
+}
+
+message SignInResponse {
+  string id = 1;
+}

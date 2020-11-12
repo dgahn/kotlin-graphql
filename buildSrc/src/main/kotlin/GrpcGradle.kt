@@ -1,13 +1,13 @@
 object GrpcPlugin {
     const val protobuf = "com.google.protobuf"
     const val grpc = "grpc"
-    const val grpcKt = "grpcKt"
+    const val grpcKt = "grpckt"
 }
 
 object GrpcVersion {
     const val protobuf = "0.8.13"
     const val protoc = "3.13.0"
-    const val grpcKotlin = "0.2.1"
+    const val grpcKotlin = "0.1.5"
     const val grpc = "1.33.1"
 }
 
@@ -22,5 +22,7 @@ object GrpcLibs {
 
 object GrpcArtifact {
     const val protoc = "com.google.protobuf:protoc:${GrpcVersion.protoc}"
+    const val protocGenGrpcJava = "io.grpc:protoc-gen-grpc-java:${GrpcVersion.grpc}"
+    const val protocGenGrpcKt = "io.grpc:protoc-gen-grpc-kotlin:${GrpcVersion.grpcKotlin}"
 
 }

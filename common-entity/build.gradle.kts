@@ -1,3 +1,10 @@
+import com.google.protobuf.gradle.generateProtoTasks
+import com.google.protobuf.gradle.id
+import com.google.protobuf.gradle.ofSourceSet
+import com.google.protobuf.gradle.plugins
+import com.google.protobuf.gradle.protobuf
+import com.google.protobuf.gradle.protoc
+
 apply(plugin=GrpcPlugin.protobuf)
 
 configurations.forEach {
@@ -20,27 +27,25 @@ dependencies {
 protobuf {
     generatedFilesBaseDir = "$projectDir/build/generated/source"
     protoc {
-        artifact = "com.google.protobuf:protoc:$protocVersion"
+        artifact = GrpcArtifact.protoc
     }
     plugins {
         id(GrpcPlugin.grpc) {
-            artifact = "io.grpc:protoc-gen-grpc-java:$grpcVersion"
+            artifact = GrpcArtifact.protocGenGrpcJava
         }
-        id("grpckt") {
-            artifact = "io.grpc:protoc-gen-grpc-kotlin:$grpcKotlinVersion"
+        id(GrpcPlugin.grpcKt) {
+            artifact = GrpcArtifact.protocGenGrpcKt
         }
     }
     generateProtoTasks {
         ofSourceSet("main").forEach { task ->
             task.plugins {
-                id("grpc")
-                id("grpckt")
+                id(GrpcPlugin.grpc)
+                id(GrpcPlugin.grpcKt)
             }
             task.generateDescriptorSet = true
             task.descriptorSetOptions.includeSourceInfo = true
             task.descriptorSetOptions.includeImports = true
-            task.descriptorSetOptions.path =
-                "${buildDir}/resources/META-INF/armeria/grpc/service-name.dsc"
         }
 
     }
@@ -48,8 +53,10 @@ protobuf {
 
 sourceSets {
     main {
-        java.srcDir("build/generated/source/main/java")
-        java.srcDir("build/generated/source/main/grpc")
-        java.srcDir("build/generated/source/main/grpckt")
+        java {
+            srcDir("build/generated/source/main/java")
+            srcDir("build/generated/source/main/grpc")
+            srcDir("build/generated/source/main/grpckt")
+        }
     }
 }

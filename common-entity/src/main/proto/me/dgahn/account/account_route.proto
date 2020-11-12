@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package me.dgahn.account;
+
+option java_multiple_files = true;
+
+import "me/dgahn/account/account.proto";
+import "me/dgahn/account/sign_in.proto";
+import "me/dgahn/account/sign_up.proto";
+import "google/protobuf/empty.proto";
+import "me/dgahn/common/id.proto";
+
+service AccountRoute {
+  rpc signUp (me.dgahn.account.SignUpRequest)
+      returns (me.dgahn.account.SignUpResponse) {}
+
+  rpc signIn (me.dgahn.account.SignInRequest)
+      returns (me.dgahn.account.SignInResponse) {}
+
+  rpc getAccount (me.dgahn.common.StringId)
+      returns (me.dgahn.account.AccountResponse) {}
+
+  rpc getAllAccount (google.protobuf.Empty)
+      returns (me.dgahn.account.AccountListResponse) {}
+}
