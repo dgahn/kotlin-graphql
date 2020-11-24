@@ -16,12 +16,13 @@ configurations.forEach {
 dependencies {
     compileOnly(JavaLibs.javax)
 
-    implementation(GrpcLibs.protobufJava)
-    implementation(GrpcLibs.protobufJavaUtil)
-    implementation(GrpcLibs.grpcKotlinStub)
-    implementation(GrpcLibs.grpcStub)
-    implementation(GrpcLibs.grpcProtobuf)
-    implementation(GrpcLibs.grpcNettyShaded)
+    api(GrpcLibs.protobufJava)
+    api(GrpcLibs.protobufJavaUtil)
+    api(GrpcLibs.grpcKotlinStub)
+    api(GrpcLibs.grpcStub)
+    api(GrpcLibs.grpcProtobuf)
+    api(GrpcLibs.grpcNettyShaded)
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 protobuf {

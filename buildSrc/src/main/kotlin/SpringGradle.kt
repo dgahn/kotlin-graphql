@@ -5,7 +5,7 @@ object SpringPlugin {
 
 object SpringVersion {
     const val dependencyManagement = "1.0.10.RELEASE"
-    const val boot = "2.4.0-RC1"
+    const val boot = "2.4.0"
     const val graphql = "4.0.0-alpha.7"
 }
 

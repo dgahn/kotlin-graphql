@@ -213,3 +213,5 @@ buildSrc/build
 !/gradle/wrapper/gradle-wrapper.jar
 /graphql/build/
 /common-entity/build/
+/account/build/
+/server-launcher/build/

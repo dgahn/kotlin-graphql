@@ -21,6 +21,11 @@ allprojects {
         maven("https://repo.spring.io/snapshot")
     }
 
+    dependencies {
+        implementation(LogLibs.kotlinLogging)
+        implementation(LogLibs.logback)
+    }
+
     tasks {
         compileKotlin {
             kotlinOptions.jvmTarget = "11"
