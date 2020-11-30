@@ -24,6 +24,10 @@ allprojects {
     dependencies {
         implementation(LogLibs.kotlinLogging)
         implementation(LogLibs.logback)
+
+        testImplementation(KotestLibs.runnerJunit5)
+        testImplementation(KotestLibs.assertionsCore)
+        testImplementation(KotestLibs.kotestProperty)
     }
 
     tasks {

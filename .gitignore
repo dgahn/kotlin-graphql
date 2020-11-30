@@ -215,3 +215,4 @@ buildSrc/build
 /common-entity/build/
 /account/build/
 /server-launcher/build/
+/scene/build/

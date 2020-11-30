@@ -14,7 +14,7 @@ configurations.forEach {
 }
 
 dependencies {
-    compileOnly(JavaLibs.javax)
+    compileOnly(JavaLibs.javaxAnnotation)
 
     api(GrpcLibs.protobufJava)
     api(GrpcLibs.protobufJavaUtil)

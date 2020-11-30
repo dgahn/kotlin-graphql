@@ -1,2 +1,4 @@
 graphql:
-  packages: "me.dgahn.query"
+  packages:
+    - "me.dgahn.adapter"
+    - "me.dgahn.domain.model"

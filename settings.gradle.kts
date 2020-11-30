@@ -4,6 +4,7 @@ include("graphql")
 include("common-entity")
 include("account")
 include("server-launcher")
+include("scene")
 
 pluginManagement {
     repositories {

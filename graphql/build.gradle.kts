@@ -2,22 +2,15 @@ apply(plugin = SpringPlugin.boot)
 apply(plugin = SpringPlugin.dependencyManagement)
 
 dependencies {
-    implementation(SpringLibs.graphqlServer)
-    implementation(KotlinLibs.kotlinStdlib)
-    implementation(KotlinLibs.coroutineCore)
-    implementation(KotlinLibs.coroutinesReactive)
-    implementation(KotlinLibs.coroutinesReactor)
+    api(SpringLibs.graphqlServer)
+    api(KotlinLibs.kotlinStdlib)
+    api(KotlinLibs.coroutineCore)
+    api(KotlinLibs.coroutinesReactive)
+    api(KotlinLibs.coroutinesReactor)
 
-    implementation(SpringLibs.bootStarterWebflux)
-
-    implementation(LogLibs.logback)
-    implementation(LogLibs.kotlinLogging)
-
-    testImplementation(KotestLibs.runnerJunit5)
-    testImplementation(KotestLibs.assertionsCore)
-    testImplementation(KotestLibs.kotestProperty)
+    api(SpringLibs.bootStarterWebflux)
+    api(SpringLibs.bootStarterValidation)
 
     testImplementation(SpringLibs.bootStarterTest)
     testImplementation(TestContainerLibs.postgresql)
-    implementation(kotlin("stdlib-jdk8"))
 }
